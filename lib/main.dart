@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:teste_ambar/api.dart';
-import 'package:teste_ambar/custom_loading_widget.dart';
-import 'package:teste_ambar/git_repository.dart';
-import 'package:teste_ambar/repocard.dart';
+import 'package:teste_ambar/data/api.dart';
+import 'package:teste_ambar/widgets/custom_loading_widget.dart';
+import 'package:teste_ambar/data/model/git_repository.dart';
+import 'package:teste_ambar/widgets/repocard.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 Api api = Api();
-List<GitRepository> reps = [];
+List<GitRepo> reps = [];
 
 class MyHomePage extends StatefulWidget {
   MyHomePage();
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget buildList(List<GitRepository> reps) {
+  Widget buildList(List<GitRepo> reps) {
     return ListView.builder(
       itemCount: reps.length,
       itemBuilder: (context, index) => RepoCard(

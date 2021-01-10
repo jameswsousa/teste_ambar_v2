@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste_ambar/custom_loading_widget.dart';
+import 'package:teste_ambar/widgets/custom_loading_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RepoCard extends StatelessWidget {

@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:teste_ambar/git_repository.dart';
+import 'package:teste_ambar/data/model/git_repository.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 
 class Api {
-  Future<List<GitRepository>> getList() async {
+  Future<List<GitRepo>> getList() async {
     if (await DataConnectionChecker().hasConnection) {
       http.Response response;
-      List<GitRepository> repositories = [];
+      List<GitRepo> repositories = [];
       response = await http.get('https://api.github.com/repositories');
       if (response.statusCode == 200) {
         json.decode(response.body).map((rep) {
-          repositories.add(GitRepository.fromJson(rep));
+          repositories.add(GitRepo.fromJson(rep));
         }).toList();
         return repositories;
       } else {
